@@ -1,7 +1,7 @@
 /*
  * @Author: Cherry
  * @Date: 2020-09-27 14:41:44
- * @LastEditTime: 2020-09-28 09:42:51
+ * @LastEditTime: 2020-10-08 22:49:21
  * @LastEditors: Please set LastEditors
  * @Description: Scheduled copy folder
  * @FilePath: ~/test/alarm_copy.c
@@ -39,18 +39,23 @@ int is_dir(char* path) {
     }
 }
 /**
- * @description:
- * @param {type}
- * @return {type}
+ * @description:用于判断字符串结尾是否为“/”
+ * @param char* str1,char* c
+ * @return int
  */
-int endwith(char* s, char c) {  //用于判断字符串结尾是否为“/”
+int endwith(char* s, char c) {
     if (s[strlen(s) - 1] == c) {
         return 1;
     } else {
         return 0;
     }
 }
-char* str_contact(char* str1, char* str2) {  //字符串连接
+/**
+ * @description:字符串连接
+ * @param char* str1,char* c
+ * @return int
+ */
+char* str_contact(char* str1, char* str2) {
     char* result;
     result = (char*)malloc(strlen(str1) + strlen(str2) +
                            1);  // str1的长度+str2的长度+\0;
@@ -84,6 +89,7 @@ void copy_file(char* source_path, char* destination_path) {  //复制文件
     fclose(out);
     fclose(in);
 }
+
 void copy_folder(char* source_path,
                  char* destination_path,
                  FILE* fp) {  //复制文件夹
